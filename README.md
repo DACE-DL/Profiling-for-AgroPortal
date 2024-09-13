@@ -1,3 +1,4 @@
-# ProfilingWebService
-Projet DACE-DL
-Profiling a pair of rdf datasets
+# Profiling for AgroPortal
+Projet AgroPortal
+Profiling a rdf dataset for AgroPortal
+
