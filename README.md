@@ -1,4 +1,4 @@
-# Profiling for AgroPortal
+# AgroPortalProfiling for AgroPortal
 Projet AgroPortal
-Profiling a rdf dataset for AgroPortal
+AgroPortalProfiling a rdf dataset for AgroPortal
 
