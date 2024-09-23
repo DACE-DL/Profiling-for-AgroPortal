@@ -59,21 +59,40 @@ public class RunTreatementNameSpace {
 
 		// Création d'une liste avec les trois noms de domaine du sujet,
 		//  du predicat et de l'objet des triplets du graphe. 
-		String nameOfListTripleNameSpace = "listTripleNameSpace";
-		ArrayList<UriAndUriAndUriAndNumber> listTripleNameSpace = new ArrayList<UriAndUriAndUriAndNumber>();
-		listTripleNameSpace = MakeListTripleNameSpace.makeList(model, listPropertyUsageCount, listModelPrefixNameSpace);
+		String nameOfListGraphNameSpace = "listGraphNameSpace";
+		ArrayList<UriAndNumber> listGraphNameSpace = new ArrayList<UriAndNumber>();
+		listGraphNameSpace = MakeListGraphNameSpace.makeList(model);
 		
-		// List of links between domain names.
-		String nameOfListLinks = "listLinks";
-		ArrayList<UriAndUriAndNumber> listLinks = new ArrayList<UriAndUriAndNumber>();
-		listLinks = MakeListLinks.makeList(model, listPropertyUsageCount, listModelPrefixNameSpace);
+		// Création d'une liste avec les noms de domaine des sujets,
+		//  des triplets du graphe. 
+		String nameOfListTripleSubjectNameSpace = "listTripleSubjectNameSpace";
+		ArrayList<UriAndNumber> listTripleSubjectNameSpace = new ArrayList<UriAndNumber>();
+		listTripleSubjectNameSpace = MakeListTripleSubjectNameSpace.makeList(model);
+		
+		// Création d'une liste avec les noms de domaine des objets,
+		//  des triplets du graphe. 
+		String nameOfListTripleObjectNameSpace = "listTripleObjectNameSpace";
+		ArrayList<UriAndNumber> listTripleObjectNameSpace = new ArrayList<UriAndNumber>();
+		listTripleObjectNameSpace = MakeListTripleObjectNameSpace.makeList(model);
+
+		// Création d'une liste avec les noms de domaine des predicats,
+		//  des triplets du graphe. 
+		String nameOfListTriplePredicatNameSpace = "listTriplePredicatNameSpace";
+		ArrayList<UriAndNumber> listTriplePredicatNameSpace = new ArrayList<UriAndNumber>();
+		listTriplePredicatNameSpace = MakeListTriplePredicatNameSpace.makeList(model);
+
+		
+		// List of links between domain names between subjects and objects in the graphe.
+		String nameOfListLinksSubjectObject = "listLinksSubjectObject";
+		ArrayList<UriAndUriAndNumber> listLinksSubjectObject = new ArrayList<UriAndUriAndNumber>();
+		listLinksSubjectObject = MakeListLinksSubjectObject.makeList(model);
 
 		// Création d'une liste avec les trois noms de domaine du sujet,
 		//  du predicat et de l'objet des triplets du graphe. 
-		String nameOfListTripleNSwithDefaultNS = "listTripleNSwithDefaultNS";
-		ArrayList<UriAndUriAndUriAndNumber> listTripleNSwithDefaultNS = new ArrayList<UriAndUriAndUriAndNumber>();
-		listTripleNSwithDefaultNS = MakeListTripleNSwithDefaultNS.makeList(listTripleNameSpace, listModelPrefixNameSpace);
-
+		String nameOfListTripleNameSpace = "listTripleNameSpace";
+		ArrayList<UriAndUriAndUriAndNumber> listTripleNameSpace = new ArrayList<UriAndUriAndUriAndNumber>();
+		listTripleNameSpace = MakeListTripleNameSpace.makeList(model);
+		
 		//////////////////////////////////////////////////////////////////////////////////////
 		// En comparant les deux listes, on peut observer la différence
 		//  sur le nombre de propriétés declarées et celles utilisées dans des triplets
@@ -138,20 +157,37 @@ public class RunTreatementNameSpace {
 		}
 
 		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleNameSpace, nameOfListTripleNameSpace + ".json");
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listGraphNameSpace, nameOfListGraphNameSpace + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleNSwithDefaultNS, nameOfListTripleNSwithDefaultNS + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 
 		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriAndNumberFile(listLinks, nameOfListLinks + ".json");
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listTripleSubjectNameSpace, nameOfListTripleSubjectNameSpace + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listTripleObjectNameSpace, nameOfListTripleObjectNameSpace + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listTriplePredicatNameSpace, nameOfListTriplePredicatNameSpace + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndUriAndNumberFile(listLinksSubjectObject, nameOfListLinksSubjectObject + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleNameSpace, nameOfListTripleNameSpace + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
