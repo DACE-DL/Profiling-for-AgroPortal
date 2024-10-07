@@ -22,8 +22,12 @@ public class MakeListPropertyDeclared {
 			"SELECT ?property ?effectiveType WHERE { " +
             " ?property rdf:type ?type ." +
             " ?type (rdfs:subClassOf)* ?effectiveType ." +
-            " FILTER (?effectiveType IN (rdf:Property, owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty)) " +
-            " } ORDER BY ?property "
+            " FILTER (?effectiveType IN (rdf:Property, owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty, " +
+			"                            owl:FunctionalProperty, owl:InverseFunctionalProperty, owl:SymmetricProperty, " +
+			" 							 owl:AsymmetricProperty, owl:TransitiveProperty, owl:IrreflexiveProperty, " + 
+			"                            owl:ReflexiveProperty )) " +
+            " } ORDER BY ?property "+
+			" LIMIT 5000 "
 		);
 		
  		QueryExecution qe = QueryExecutionFactory.create(query, model);		

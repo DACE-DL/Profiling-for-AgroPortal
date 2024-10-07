@@ -27,20 +27,34 @@ public class MakeListGraphNameSpace {
         "       ?s ?p ?o . " +
         "       FILTER(isIRI(?s)) " +
         "       BIND(REPLACE(STR(?s), '([/#][^/#]*)$', '') AS ?namespaceS) " +
-        "       BIND(CONCAT(?namespaceS, SUBSTR(STR(?s), STRLEN(?namespaceS) + 1, 1)) AS ?namespace) " +
+        "       BIND(CONCAT(?namespaceS, SUBSTR(STR(?s), STRLEN(?namespaceS) + 1, 1)) AS ?namespaceS1) " +
+        "       BIND(IF(REGEX(STR(?s), '^http://purl.obolibrary.org/obo/[A-Za-z]+_\\\\d+$'), " +
+        "           CONCAT('http://purl.obolibrary.org/obo', " + //
+		"           LCASE(SUBSTR(STR(?s), 31, STRLEN(STRBEFORE(SUBSTR(STR(?s), 31), '_')))),'.owl'),  " +
+        "           ?namespaceS1) AS ?namespace) " +
         "     } " +
         "   } UNION { " +
         "     SELECT ?namespace WHERE { " +
         "       ?s ?p ?o . " +
         "       BIND(REPLACE(STR(?p), '([/#][^/#]*)$', '') AS ?namespaceP) " +
-        "       BIND(CONCAT(?namespaceP, SUBSTR(STR(?p), STRLEN(?namespaceP) + 1, 1)) AS ?namespace) " +
+        "       BIND(CONCAT(?namespaceP, SUBSTR(STR(?p), STRLEN(?namespaceP) + 1, 1)) AS ?namespaceP1) " +
+        "       BIND(IF(REGEX(STR(?p), '^http://purl.obolibrary.org/obo/[A-Za-z]+_\\\\d+$'), " +
+        "           CONCAT('http://purl.obolibrary.org/obo', " + //
+		"           LCASE(SUBSTR(STR(?p), 31, STRLEN(STRBEFORE(SUBSTR(STR(?p), 31), '_')))),'.owl'),  " +
+        "           ?namespaceP1) AS ?namespace) " +
         "     } " +
         "   } UNION { " +
         "     SELECT ?namespace WHERE { " +
         "       ?s ?p ?o . " +
         "       FILTER(isIRI(?o)) " +
+        "       FILTER(STR(?o) != 'http://www.w3.org/2002/07/owl#Ontology')" +
+		"       FILTER(STR(?p) != 'http://www.w3.org/2002/07/owl#imports')" +
         "       BIND(REPLACE(STR(?o), '([/#][^/#]*)$', '') AS ?namespaceO) " +
-        "       BIND(CONCAT(?namespaceO, SUBSTR(STR(?o), STRLEN(?namespaceO) + 1, 1)) AS ?namespace) " +
+        "       BIND(CONCAT(?namespaceO, SUBSTR(STR(?o), STRLEN(?namespaceO) + 1, 1)) AS ?namespaceO1) " +
+        "       BIND(IF(REGEX(STR(?o), '^http://purl.obolibrary.org/obo/[A-Za-z]+_\\\\d+$'), " +
+        "           CONCAT('http://purl.obolibrary.org/obo', " + //
+		"           LCASE(SUBSTR(STR(?o), 31, STRLEN(STRBEFORE(SUBSTR(STR(?o), 31), '_')))),'.owl'),  " +
+        "           ?namespaceO1) AS ?namespace) " +
         "     } " +
         "   } " +
         " } " +

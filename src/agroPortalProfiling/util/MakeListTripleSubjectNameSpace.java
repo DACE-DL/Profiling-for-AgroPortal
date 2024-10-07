@@ -24,8 +24,14 @@ public class MakeListTripleSubjectNameSpace {
         " SELECT ?namespace (COUNT(?namespace) AS ?count) WHERE { " +
         "       ?s ?p ?o . " +
         "       FILTER(isIRI(?s)) " +
+        "       FILTER(STR(?o) != 'http://www.w3.org/2002/07/owl#Ontology')" +
+		"       FILTER(STR(?p) != 'http://www.w3.org/2002/07/owl#imports')" +
         "       BIND(REPLACE(STR(?s), '([/#][^/#]*)$', '') AS ?namespaceS) " +
-        "       BIND(CONCAT(?namespaceS, SUBSTR(STR(?s), STRLEN(?namespaceS) + 1, 1)) AS ?namespace) " +
+        "       BIND(CONCAT(?namespaceS, SUBSTR(STR(?s), STRLEN(?namespaceS) + 1, 1)) AS ?namespaceS1) " +
+        "       BIND(IF(REGEX(STR(?s), '^http://purl.obolibrary.org/obo/[A-Za-z]+_\\\\d+$'), " +
+        "           CONCAT('http://purl.obolibrary.org/obo', " + //
+		"           LCASE(SUBSTR(STR(?s), 31, STRLEN(STRBEFORE(SUBSTR(STR(?s), 31), '_')))),'.owl'),  " +
+        "           ?namespaceS1) AS ?namespace) " +
         " } " +
         " GROUP BY ?namespace " +
         " ORDER BY DESC(?count) ";

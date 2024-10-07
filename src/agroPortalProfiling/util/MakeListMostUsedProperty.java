@@ -7,12 +7,12 @@ import org.apache.jena.rdf.model.Model;
 public class MakeListMostUsedProperty {
 	
 	// Création d'une liste des propriétés limité à 100
-	public static ArrayList<UriAndNumber> makeList(Model model, ArrayList<UriAndNumber> listPropertyUsageCount) {
+	public static ArrayList<UriAndNumber> makeList(Model model, ArrayList<UriAndNumber> listPredicatUsageCount) {
 
 		ArrayList<UriAndNumber> ListResources = new ArrayList<UriAndNumber>();
 		Integer n = 0;
 
-		for (UriAndNumber resource : listPropertyUsageCount) {
+		for (UriAndNumber resource : listPredicatUsageCount) {
 			// On se débarasse de certaines propriétés de RDF pour les listes...
 			if (! resource.getUri().toString().equals("http://www.w3.org/1999/02/22-rdf-syntax-ns#rest")
 			&& ! resource.getUri().toString().equals("http://www.w3.org/1999/02/22-rdf-syntax-ns#nil")

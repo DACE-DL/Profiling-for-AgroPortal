@@ -23,10 +23,22 @@ public class MakeListLinksSubjectObject {
 		 " SELECT ?namespaceS ?namespaceO (COUNT(*) AS ?count) WHERE { " +
 		 "       ?s ?p ?o . " +
 		 "       FILTER(isIRI(?s) && isIRI(?o) ) " +
+		 "       FILTER(STR(?o) != STR(owl:Ontology))" +
+		 "       FILTER(STR(?p) != STR(owl:imports))" +
+		 " 		 FILTER(!STRSTARTS(STR(?o), STR(rdf:)))" +
+		 " 		 FILTER(!STRSTARTS(STR(?o), STR(owl:)))" +
 		 "       BIND(REPLACE(STR(?s), '([/#][^/#]*)$', '') AS ?namespaceTempS) " +
-		 "       BIND(CONCAT(?namespaceTempS, SUBSTR(STR(?s), STRLEN(?namespaceTempS) + 1, 1)) AS ?namespaceS) " +
+		 "       BIND(CONCAT(?namespaceTempS, SUBSTR(STR(?s), STRLEN(?namespaceTempS) + 1, 1)) AS ?namespaceS1) " +
+		 "       BIND(IF(REGEX(STR(?s), '^http://purl.obolibrary.org/obo/[A-Za-z]+_\\\\d+$'), " +
+		 "            CONCAT('http://purl.obolibrary.org/obo', " + //
+		 "             LCASE(SUBSTR(STR(?s), 31, STRLEN(STRBEFORE(SUBSTR(STR(?s), 31), '_')))),'.owl'),  " +
+		 "             ?namespaceS1) AS ?namespaceS) " +
 		 "       BIND(REPLACE(STR(?o), '([/#][^/#]*)$', '') AS ?namespaceTempO) " +
-		 "       BIND(CONCAT(?namespaceTempO, SUBSTR(STR(?o), STRLEN(?namespaceTempO) + 1, 1)) AS ?namespaceO) " +
+		 "       BIND(CONCAT(?namespaceTempO, SUBSTR(STR(?o), STRLEN(?namespaceTempO) + 1, 1)) AS ?namespaceO1) " +
+		 "       BIND(IF(REGEX(STR(?o), '^http://purl.obolibrary.org/obo/[A-Za-z]+_\\\\d+$'), " +
+		 "            CONCAT('http://purl.obolibrary.org/obo', " + //
+		 "             LCASE(SUBSTR(STR(?o), 31, STRLEN(STRBEFORE(SUBSTR(STR(?o), 31), '_')))),'.owl'),  " +
+		 "             ?namespaceO1) AS ?namespaceO) " +
 		 " } " +
 		 " GROUP BY ?namespaceS ?namespaceO " +
 		 " ORDER BY DESC(?count) ";

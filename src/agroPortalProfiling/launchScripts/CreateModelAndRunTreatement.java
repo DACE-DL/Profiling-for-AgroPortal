@@ -46,7 +46,7 @@ public class CreateModelAndRunTreatement {
 				Model model = CreateModel.createModel(idDataset, listSourceDatasetsFileName);
 				// traitement du model
 				//RunTreatement.treatements(model);
-				RunTreatementNameSpace.treatements(model);
+				RunTreatement.treatements(model);
 				model.close();
 				// Sauvegarde des résultats dans fichier JSON	
 				Path pathForResults = Paths.get(AgroPortalProfilingConf.folderForResults, idDataset);

@@ -21,7 +21,7 @@ import org.apache.jena.rdf.model.Resource;
 public class MakeListLinks {
 	
 	// Création d'une liste des liens dans un triplet
-	public static ArrayList<UriAndUriAndNumber> makeList(Model model, ArrayList<UriAndNumber> listPropertyUsageCount, ArrayList<UriAndString> listModelPrefixNameSpace) {
+	public static ArrayList<UriAndUriAndNumber> makeList(Model model, ArrayList<UriAndNumber> listPredicatUsageCount, ArrayList<UriAndString> listModelPrefixNameSpace) {
     
 		String prefix = AgroPortalProfilingConf.queryPrefix;
 	
@@ -36,7 +36,7 @@ public class MakeListLinks {
 		// Trier la liste des NameSpace (ordre décroissant)
         listNameSpace.sort(Comparator.comparing(Uri::toString).reversed());
 	
-		listPropertyUsageCount.forEach((property) -> {
+		listPredicatUsageCount.forEach((property) -> {
 			Query query2 = QueryFactory.create(prefix +
 				" SELECT ?s (<" + property.getUri().toString() + "> AS ?property) ?o WHERE { " +
 				" ?s <" + property.getUri().toString() + "> ?o " +
@@ -103,14 +103,14 @@ public class MakeListLinks {
 	// Sans controle namespace déclarés           //
 	////////////////////////////////////////////////
 	// Création d'une liste des liens dans un triplet
-	public static ArrayList<UriAndUri> makeList(Model model, ArrayList<UriAndNumber> listPropertyUsageCount) {
+	public static ArrayList<UriAndUri> makeList(Model model, ArrayList<UriAndNumber> listPredicatUsageCount) {
 		
 		String prefix = AgroPortalProfilingConf.queryPrefix;
 
 		ArrayList<UriAndUri> ListResources = new ArrayList<UriAndUri>();
 		List<String> listResourcesString = new ArrayList<>();
 		
-		listPropertyUsageCount.forEach((property) -> {
+		listPredicatUsageCount.forEach((property) -> {
 			//System.out.println("property : " + property.getUri().toString());
 			Query query2 = QueryFactory.create(prefix +
 				" SELECT ?s (<" + property.getUri().toString() + "> AS ?property) ?o WHERE { " +
