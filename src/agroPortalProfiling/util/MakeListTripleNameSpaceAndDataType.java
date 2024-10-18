@@ -23,7 +23,7 @@ public class MakeListTripleNameSpaceAndDataType {
 		 	" SELECT ?namespaceS ?namespaceP ?datatype (COUNT(*) AS ?count) WHERE { " +
             "       ?s ?p ?o . " +
             "       FILTER(isIRI(?s) && isIRI(?p)) " + // Vérifier que le sujet et le prédicat sont des IRI
-			"       FILTER(isLiteral(?o)) " +          // Ne traiter que les objets littéraux
+			"       FILTER(isLiteral(?o)) " + // Ne traiter que les triplets dont les objets sont des littéraux
 			"       FILTER(STR(?o) != STR(owl:Ontology))" +
 			"       FILTER(STR(?p) != STR(owl:imports))" +
 			"       BIND(REPLACE(STR(?s), '([/#][^/#]*)$', '') AS ?namespaceTempS) " +
@@ -59,7 +59,7 @@ public class MakeListTripleNameSpaceAndDataType {
 			 ListResources.add(new UriAndUriAndUriAndNumber(namespaceS, namespaceP, datatype, count));
 			 //System.out.println(" " + namespaceS +" "+ namespaceP +" " + datatype + ", Count: " + count);
 		 }
-		 ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
+		 // ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
 		 return ListResources;
 	}
 }

@@ -37,7 +37,7 @@ public class MakeListGraphTripleSize {
 			 
 			 ListResources.add(new UriAndNumber("Graph size", count));
 		 }
-		 ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
+		 // ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
 		 return ListResources;
 	}
 

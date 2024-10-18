@@ -176,7 +176,84 @@ public class RunTreatement {
 		ArrayList<UriAndUriAndUriAndNumber> listTripleNameSpaceAndDataType = new ArrayList<UriAndUriAndUriAndNumber>();
 		listTripleNameSpaceAndDataType = MakeListTripleNameSpaceAndDataType.makeList(model);
 
+	    // Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires de représentation des connaissances. 
+		String nameOfListNsKnowledgeRepresentationVocabularies = "listNsKnowledgeRepresentationVocabularies";
+		ArrayList<UriAndNumber> listNsKnowledgeRepresentationVocabularies = new ArrayList<UriAndNumber>();
+		listNsKnowledgeRepresentationVocabularies = MakeListNsKnowledgeRepresentationVocabularies.makeList(model);
 		
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires réutilisés. 
+		String nameOfListNsReusedVocabularies = "listNsReusedVocabularies";
+		ArrayList<UriAndNumber> listNsReusedVocabularies = new ArrayList<UriAndNumber>();
+		listNsReusedVocabularies = MakeListNsReusedVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les autres vocabulaires. 
+		String nameOfListNsOtherVocabularies = "listNsOtherVocabularies";
+		ArrayList<UriAndNumber> listNsOtherVocabularies = new ArrayList<UriAndNumber>();
+		listNsOtherVocabularies = MakeListNsOtherVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires de représentation des connaissances. 
+		String nameOfListNsSubjectKnowledgeRepresentationVocabularies = "listNsSubjectKnowledgeRepresentationVocabularies";
+		ArrayList<UriAndNumber> listNsSubjectKnowledgeRepresentationVocabularies = new ArrayList<UriAndNumber>();
+		listNsSubjectKnowledgeRepresentationVocabularies = MakeListNsSubjectKnowledgeRepresentationVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires réutilisés. 
+		String nameOfListNsSubjectReusedVocabularies = "listNsSubjectReusedVocabularies";
+		ArrayList<UriAndNumber> listNsSubjectReusedVocabularies = new ArrayList<UriAndNumber>();
+		listNsSubjectReusedVocabularies = MakeListNsSubjectReusedVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les autres vocabulaires. 
+		String nameOfListNsSubjectOtherVocabularies = "listNsSubjectOtherVocabularies";
+		ArrayList<UriAndNumber> listNsSubjectOtherVocabularies = new ArrayList<UriAndNumber>();
+		listNsSubjectOtherVocabularies = MakeListNsSubjectOtherVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires de représentation des connaissances. 
+		String nameOfListNsPredicateKnowledgeRepresentationVocabularies = "listNsPredicateKnowledgeRepresentationVocabularies";
+		ArrayList<UriAndNumber> listNsPredicateKnowledgeRepresentationVocabularies = new ArrayList<UriAndNumber>();
+		listNsPredicateKnowledgeRepresentationVocabularies = MakeListNsPredicateKnowledgeRepresentationVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires réutilisés. 
+		String nameOfListNsPredicateReusedVocabularies = "listNsPredicateReusedVocabularies";
+		ArrayList<UriAndNumber> listNsPredicateReusedVocabularies = new ArrayList<UriAndNumber>();
+		listNsPredicateReusedVocabularies = MakeListNsPredicateReusedVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les autres vocabulaires. 
+		String nameOfListNsPredicateOtherVocabularies = "listNsPredicateOtherVocabularies";
+		ArrayList<UriAndNumber> listNsPredicateOtherVocabularies = new ArrayList<UriAndNumber>();
+		listNsPredicateOtherVocabularies = MakeListNsPredicateOtherVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires de représentation des connaissances. 
+		String nameOfListNsObjectKnowledgeRepresentationVocabularies = "listNsObjectKnowledgeRepresentationVocabularies";
+		ArrayList<UriAndNumber> listNsObjectKnowledgeRepresentationVocabularies = new ArrayList<UriAndNumber>();
+		listNsObjectKnowledgeRepresentationVocabularies = MakeListNsObjectKnowledgeRepresentationVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires réutilisés. 
+		String nameOfListNsObjectReusedVocabularies = "listNsObjectReusedVocabularies";
+		ArrayList<UriAndNumber> listNsObjectReusedVocabularies = new ArrayList<UriAndNumber>();
+		listNsObjectReusedVocabularies = MakeListNsObjectReusedVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les autres vocabulaires. 
+		String nameOfListNsObjectOtherVocabularies = "listNsObjectOtherVocabularies";
+		ArrayList<UriAndNumber> listNsObjectOtherVocabularies = new ArrayList<UriAndNumber>();
+		listNsObjectOtherVocabularies = MakeListNsObjectOtherVocabularies.makeList(model);
+
+		// Création d'une liste avec les trois noms de domaine du sujet,
+		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires de représentation des connaissances. 
+		String nameOfListLiteralNsKnowledgeRepresentationVocabularies = "listLiteralNsKnowledgeRepresentationVocabularies";
+		ArrayList<UriAndNumber> listLiteralNsKnowledgeRepresentationVocabularies = new ArrayList<UriAndNumber>();
+		listLiteralNsKnowledgeRepresentationVocabularies = MakeListLiteralNsKnowledgeRepresentationVocabularies.makeList(model);
+
 		//////////////////////////////////////////////
 		// Transfert des listes dans fichers .json  //
 		//////////////////////////////////////////////
@@ -347,6 +424,84 @@ public class RunTreatement {
 		
 		try {
 			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleNameSpaceAndDataType, nameOfListTripleNameSpaceAndDataType + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsKnowledgeRepresentationVocabularies, nameOfListNsKnowledgeRepresentationVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsReusedVocabularies, nameOfListNsReusedVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsOtherVocabularies, nameOfListNsOtherVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsSubjectKnowledgeRepresentationVocabularies, nameOfListNsSubjectKnowledgeRepresentationVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsSubjectReusedVocabularies, nameOfListNsSubjectReusedVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsSubjectOtherVocabularies, nameOfListNsSubjectOtherVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsPredicateKnowledgeRepresentationVocabularies, nameOfListNsPredicateKnowledgeRepresentationVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsPredicateReusedVocabularies, nameOfListNsPredicateReusedVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsPredicateOtherVocabularies, nameOfListNsPredicateOtherVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsObjectKnowledgeRepresentationVocabularies, nameOfListNsObjectKnowledgeRepresentationVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsObjectReusedVocabularies, nameOfListNsObjectReusedVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listNsObjectOtherVocabularies, nameOfListNsObjectOtherVocabularies + ".json");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listLiteralNsKnowledgeRepresentationVocabularies, nameOfListLiteralNsKnowledgeRepresentationVocabularies + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -75,7 +75,7 @@ public class MakeListGraphNameSpace {
             ListResources.add(new UriAndNumber(namespace, count));
             // System.out.println("Namespace: " + namespace + ", Count: " + count);
         }
-        ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
+        // ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
         return ListResources;
     }
 }

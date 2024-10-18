@@ -56,7 +56,7 @@ public class MakeListNameSpaceWithRdfsSubClassOfPredicat {
 			 ListResources.add(new UriAndUriAndNumber(namespaceS, namespaceO, count));
 			 // System.out.println("Links: " + namespaceS +" " + namespaceO + ", Count: " + count);
 		 }
-		 ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
+		 // ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
 		 return ListResources;
 	}
 
