@@ -280,6 +280,32 @@ public class AgroPortalProfilingUtil {
 	}
 	
 	//  Créé un fichier JSON partir d'un tableau d'objects
+	public static void makeJsonUriAndStringAndNumberFile(ArrayList<UriAndStringAndNumber> listObject, String nameJsonObjectFile) throws Exception {
+		// Récupération du chemin du fichier.
+		Path pathOfTheFile = Paths.get(AgroPortalProfilingConf.folderForTmp, nameJsonObjectFile);
+		File file  = new File(pathOfTheFile.toString());
+        // System.out.println(pathOfTheFile.toString());
+		ObjectMapper objectMapper = new ObjectMapper();	
+		objectMapper.writeValue(file, listObject);		
+	}
+	// Retourne un tableau d'objects à partir d'un fichier JSON
+	public static ArrayList<UriAndStringAndNumber> makeArrayListUriAndStringAndNumber(String nameJsonObjectFile) throws Exception {
+		ArrayList<UriAndStringAndNumber> listObjects = new ArrayList<UriAndStringAndNumber>();
+		// Récupération du chemin du fichier.
+		Path pathOfTheFile = Paths.get(nameJsonObjectFile);
+		File file  = new File(pathOfTheFile.toString());
+		if (file.exists()) {
+		   //on récupère les objects à traiter dans le fichier JSON
+			String jsonArray = AgroPortalProfilingUtil.readFileAsString(pathOfTheFile.toString());
+			ObjectMapper objectMapper = new ObjectMapper();	
+			listObjects = objectMapper.readValue(jsonArray, new TypeReference<ArrayList<UriAndStringAndNumber>>(){});	 
+		} else {
+			System.out.println("Le fichier " + nameJsonObjectFile +  " est inexistant !"); 
+		}	
+		return listObjects;
+	}
+
+	//  Créé un fichier JSON partir d'un tableau d'objects
 	public static void makeJsonUriAndX2UriAndUriListAndUriListAndUriListFile(ArrayList<UriAndX2UriAndUriListAndUriListAndUriList> listObject, String nameJsonObjectFile) throws Exception {
 		// Récupération du chemin du fichier.
 		Path pathOfTheFile = Paths.get(AgroPortalProfilingConf.folderForTmp, nameJsonObjectFile);

@@ -59,7 +59,9 @@ public class MakeListNsPredicateOtherVocabularies {
         "    'http://purl.org/pav/', " + // Provenance, Authoring and Versioning (PAV)
         "    'http://www.geneontology.org/formats/oboInOwl#', " + // OboInOwl Mappings (OBOINOWL)
         "    'http://www.w3.org/ns/sparql-service-description#', " + // SPARQL 1.1 Service Description (SD)
-        "    'http://w3id.org/nkos#'  " + // Networked Knowledge Organization Systems Dublin Core Application Profile (NKOS)
+        "    'http://w3id.org/nkos#', " + // Networked Knowledge Organization Systems Dublin Core Application Profile (NKOS)
+        "    'http://purl.obolibrary.org/obo/iao.owl', " +
+        "    'http://purl.obolibrary.org/obo/ro.owl' " +
         "   ))" +
         " } " +
         " GROUP BY ?namespace " +

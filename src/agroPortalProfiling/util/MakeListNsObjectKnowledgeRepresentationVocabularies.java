@@ -13,21 +13,23 @@ public class MakeListNsObjectKnowledgeRepresentationVocabularies {
 
     // Création d'une liste avec les trois noms de domaine du sujet,
     // du predicat et de l'objet des triplets du graphe.
-    public static ArrayList<UriAndNumber> makeList(Model model) {
+    public static ArrayList<UriAndStringAndNumber> makeList(Model model) {
 
         String prefix = AgroPortalProfilingConf.queryPrefix;
 
-        ArrayList<UriAndNumber> ListResources = new ArrayList<>();
+        ArrayList<UriAndStringAndNumber> ListResources = new ArrayList<>();
 
         // SPARQL Query pour extraire les namespaces des sujets, prédicats et objets
         String sparqlQuery = prefix +
-        " SELECT ?namespace (COUNT(?namespaceFound) AS ?count) ?order WHERE { " +
-        "  VALUES (?namespace ?order) { " +
-        "    ('http://www.w3.org/1999/02/22-rdf-syntax-ns#' 1) " +
-        "    ('http://www.w3.org/2000/01/rdf-schema#' 2) " +
-        "    ('http://www.w3.org/2002/07/owl#' 3) " +
-        "    ('http://www.w3.org/2004/02/skos/core#' 4) " +
-        "    ('http://www.w3.org/2008/05/skos-xl#' 5) " +
+        " SELECT ?namespace ?abrevNamespace (COUNT(?namespaceFound) AS ?count) ?order WHERE { " +
+        "  VALUES (?namespace ?abrevNamespace ?order) { " +
+        "    ('http://www.w3.org/1999/02/22-rdf-syntax-ns#' 'RDF' 1) " +
+        "    ('http://www.w3.org/2000/01/rdf-schema#' 'RDFS' 2) " +
+        "    ('http://www.w3.org/2002/07/owl#' 'OWL' 3) " +
+        "    ('http://www.w3.org/2004/02/skos/core#' 'SKOS' 4) " +
+        "    ('http://www.w3.org/2008/05/skos-xl#' 'SKOS-XL' 5) " +
+        "    ('http://www.geneontology.org/formats/oboInOwl#' 'OBOINOWL' 6) " +
+        "    ('http://purl.obolibrary.org/obo/ro.owl' 'RO' 7) " +
         "  } " +
         "  OPTIONAL { " +
         "    { " +
@@ -47,7 +49,7 @@ public class MakeListNsObjectKnowledgeRepresentationVocabularies {
         "    FILTER(STR(?namespaceFound) = STR(?namespace)) " +
         "  } " +
         "} " +
-        " GROUP BY ?namespace ?order " +
+        " GROUP BY ?namespace ?abrevNamespace ?order " +
         " ORDER BY ?order"; 
     
 
@@ -60,12 +62,12 @@ public class MakeListNsObjectKnowledgeRepresentationVocabularies {
         while (result2.hasNext()) {
             QuerySolution querySolution = result2.next();
             String namespace = querySolution.getLiteral("namespace").getString();
+            String abrevNamespace = querySolution.getLiteral("abrevNamespace").getString();
 			Integer count = querySolution.getLiteral("count").getInt();
             
-            ListResources.add(new UriAndNumber(namespace, count));
-            // System.out.println("Namespace: " + namespace + ", Count: " + count);
+            ListResources.add(new UriAndStringAndNumber(namespace, abrevNamespace, count));
         }
-        // ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
+
         return ListResources;
     }
 }
