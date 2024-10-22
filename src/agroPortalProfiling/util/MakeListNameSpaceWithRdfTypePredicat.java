@@ -18,7 +18,7 @@ public class MakeListNameSpaceWithRdfTypePredicat {
 	
 		ArrayList<UriAndUriAndNumber> ListResources = new ArrayList<UriAndUriAndNumber>();
 
-		 // SPARQL Query pour extraire les namespaces des sujets, prédicats et objets
+		 // SPARQL Query 
 		 String sparqlQuery = prefix +
 		 " SELECT ?namespaceS ?namespaceO (COUNT(*) AS ?count) WHERE { " +
 		 "       ?s rdf:type ?o . " +
@@ -53,11 +53,10 @@ public class MakeListNameSpaceWithRdfTypePredicat {
 			 String namespaceO = querySolution.getLiteral("namespaceO").getString();
 			 Integer count = querySolution.getLiteral("count").getInt();
 			 
-			 // ListResources.add(new UriAndUriAndNumber(namespaceS, namespaceO, count));
+			 ListResources.add(new UriAndUriAndNumber(namespaceS, namespaceO, count));
 			 // System.out.println("Links: " + namespaceS +" " + namespaceO + ", Count: " + count);
 		 }
 		 // ListResources.sort((o1, o2) -> Integer.compare(o2.getNumber(), o1.getNumber()));
 		 return ListResources;
 	}
-
 }

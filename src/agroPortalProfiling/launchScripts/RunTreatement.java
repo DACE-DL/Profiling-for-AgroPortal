@@ -27,33 +27,6 @@ public class RunTreatement {
 		ArrayList<UriAndNumber> listGraphTripleSize = new ArrayList<UriAndNumber>();
 		listGraphTripleSize = MakeListGraphTripleSize.makeList(model);
 
-		// Liste des predicats et de leur usage dans les triplets du graphe.
-		String nameOfListPredicatUsageCount = "listPredicatUsageCount";
-		ArrayList<UriAndNumber> listPredicatUsageCount = new ArrayList<UriAndNumber>();
-		listPredicatUsageCount = MakeListPredicatUsageCount.makeList(model);
-
-		// Liste des predicats et de leur usage dans les triplets du graphe sans éléments de
-		//  la syntaxe RDF.
-		String nameOfListPredicatNoRdfSyntaxUsageCount = "listPredicatNoRdfSyntaxUsageCount";
-		ArrayList<UriAndNumber> listPredicatNoRdfSyntaxUsageCount = new ArrayList<UriAndNumber>();
-		listPredicatNoRdfSyntaxUsageCount = MakeListPredicatNoRdfSyntaxUsageCount.makeList(model);
-		
-		// Liste des predicats et de leur usage dans les triplets du graphe sans éléments de
-		//  la syntaxe RDF RDFS et OWL.
-		String nameOfListPredicatNoRdfRdfsOwlUsageCount = "listPredicatNoRdfRdfsOwlUsageCount";
-		ArrayList<UriAndNumber> listPredicatNoRdfRdfsOwlUsageCount = new ArrayList<UriAndNumber>();
-		listPredicatNoRdfRdfsOwlUsageCount = MakeListPredicatNoRdfRdfsOwlUsageCount.makeList(model);
-		
-		// Liste des propriétés déclarées.
-		String nameOfListPropertyDeclared = "listPropertyDeclared";
-		ArrayList<UriAndUri> listPropertyDeclared = new ArrayList<UriAndUri>();
-		listPropertyDeclared = MakeListPropertyDeclared.makeList(model);
-
-		// Liste des classes déclarées.
-		String nameOfListClassDeclared = "listClassDeclared";
-		ArrayList<UriAndUri> listClassDeclared = new ArrayList<UriAndUri>();
-		listClassDeclared = MakeListClassDeclared.makeList(model);
-
 		// Liste des namespaces des propriétés déclarées.
 		String nameOfListNameSpacePropertyDeclared = "listNameSpacePropertyDeclared";
 		ArrayList<UriAndUriAndNumber> listNameSpacePropertyDeclared = new ArrayList<UriAndUriAndNumber>();
@@ -63,26 +36,6 @@ public class RunTreatement {
 		String nameOfListNameSpaceClassDeclared = "listNameSpaceClassDeclared";
 		ArrayList<UriAndUriAndNumber> listNameSpaceClassDeclared = new ArrayList<UriAndUriAndNumber>();
 		listNameSpaceClassDeclared = MakeListNameSpaceClassDeclared.makeList(model);
-
-		// Liste des propriétés et de leur domaine and range déclarés.
-		String nameOfListPropertyDomainAndRange = "listPropertyDomainAndRange";
-		ArrayList<UriAndX2UriAndUriListAndUriListAndUriList> listPropertyDomainAndRange = new ArrayList<UriAndX2UriAndUriListAndUriListAndUriList>();
-		listPropertyDomainAndRange = MakeListPropertyDomainAndRange.makeList(model);
-
-		// Liste des propriétés des propriétés (Transitive, reflective, ...).
-		String nameOfListPropertyProperties = "listPropertyProperties";
-		ArrayList<UriAndUri> listPropertyProperties = new ArrayList<UriAndUri>();
-		listPropertyProperties = MakeListPropertyProperties.makeList(model);
-
-		// Liste des ressources liées par une relation sameAs.
-		String nameOfListResourcesSameAs = "listResourcesSameAs";
-		ArrayList<UriAndUri> listResourcesSameAs = new ArrayList<UriAndUri>();
-		listResourcesSameAs = MakeListResourcesSameAs.makeList(model);
-
-		// Liste des ressources dépréciées.
-		String nameOfListResourceDeprecated = "listResourceDeprecated";
-		ArrayList<UriAndUri> listResourceDeprecated = new ArrayList<UriAndUri>();
-		listResourceDeprecated = MakeListResourceDeprecated.makeList(model);
 		
 		// Uri de l'ontologie.
 		String nameOfListUriOntology = "listUriOntology";
@@ -99,7 +52,6 @@ public class RunTreatement {
 		ArrayList<Uri> listUriImport = new ArrayList<Uri>();
 		listUriImport = MakeListUriImport.makeList(model);
 
-
 		// Création d'une liste avec les trois noms de domaine du sujet,
 		//  du predicat et de l'objet des triplets du graphe. 
 		String nameOfListGraphNameSpace = "listGraphNameSpace";
@@ -112,12 +64,6 @@ public class RunTreatement {
 		ArrayList<UriAndNumber> listTripleSubjectNameSpace = new ArrayList<UriAndNumber>();
 		listTripleSubjectNameSpace = MakeListTripleSubjectNameSpace.makeList(model);
 		
-		// Création d'une liste avec les noms de domaine des sujets,
-		//  des triplets du graphe. 
-		String nameOfListReduceTripleSubjectNameSpace = "listReduceTripleSubjectNameSpace";
-		ArrayList<UriAndNumber> listReduceTripleSubjectNameSpace = new ArrayList<UriAndNumber>();
-		listReduceTripleSubjectNameSpace = MakeListReduceTripleSubjectNameSpace.makeList(model);
-
 		// Création d'une liste avec les noms de domaine des objets,
 		//  des triplets du graphe. 
 		String nameOfListTripleObjectNameSpace = "listTripleObjectNameSpace";
@@ -130,19 +76,13 @@ public class RunTreatement {
 		ArrayList<UriAndNumber> listTriplePredicatNameSpace = new ArrayList<UriAndNumber>();
 		listTriplePredicatNameSpace = MakeListTriplePredicatNameSpace.makeList(model);
 
-		// Liste des namespaces des predicats et de leur usage dans les triplets du graphe sans éléments de
-		//  la syntaxe RDF RDFS et OWL.
-		String nameOfListTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount = "listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount";
-		ArrayList<UriAndNumber> listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount = new ArrayList<UriAndNumber>();
-		listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount = MakeListTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount.makeList(model);
-
-		
 		// List of links between subjects and objects in the graphe.
 		String nameOfListLinksSubjectObject = "listLinksSubjectObject";
 		ArrayList<UriAndUriAndNumber> listLinksSubjectObject = new ArrayList<UriAndUriAndNumber>();
 		listLinksSubjectObject = MakeListLinksSubjectObject.makeList(model);
 
-		// List of links between subjects and objects in the graphe.
+		// List of links between subjects and objects in the graphe when the domain name of the subject
+		//   or object is that of the ontology being processed.
 		String nameOfListLinksWithDefaultOntology = "listLinksWithDefaultOntology";
 		ArrayList<UriAndUriAndNumber> listLinksWithDefaultOntology = new ArrayList<UriAndUriAndNumber>();
 		listLinksWithDefaultOntology = MakeListLinksWithDefaultOntology.makeList(model);
@@ -160,21 +100,21 @@ public class RunTreatement {
 
 		// Création d'une liste avec les trois noms de domaine du sujet,
 		//  du predicat et de l'objet des triplets du graphe. 
-		String nameOfListTripleNameSpace = "listTripleNameSpace";
-		ArrayList<UriAndUriAndUriAndNumber> listTripleNameSpace = new ArrayList<UriAndUriAndUriAndNumber>();
-		listTripleNameSpace = MakeListTripleNameSpace.makeList(model);
+		String nameOfListTripleSubjectPredicateObjectNameSpace = "listTripleSubjectPredicateObjectNameSpace";
+		ArrayList<UriAndUriAndUriAndNumber> listTripleSubjectPredicateObjectNameSpace = new ArrayList<UriAndUriAndUriAndNumber>();
+		listTripleSubjectPredicateObjectNameSpace = MakeListTripleSubjectPredicateObjectNameSpace.makeList(model);
 
 		// Création d'une liste avec les trois noms de domaine du sujet,
 		//  du predicat et de l'objet des triplets du graphe. 
-		String nameOfListTripleNameSpaceWithDefaultOntology = "listTripleNameSpaceWithDefaultOntology";
-		ArrayList<UriAndUriAndUriAndNumber> listTripleNameSpaceWithDefaultOntology = new ArrayList<UriAndUriAndUriAndNumber>();
-		listTripleNameSpaceWithDefaultOntology = MakeListTripleNameSpaceWithDefaultOntology.makeList(model);
+		String nameOfListTripleSubjectPredicateObjectNameSpaceWithDefaultOntology = "listTripleSubjectPredicateObjectNameSpaceWithDefaultOntology";
+		ArrayList<UriAndUriAndUriAndNumber> listTripleSubjectPredicateObjectNameSpaceWithDefaultOntology = new ArrayList<UriAndUriAndUriAndNumber>();
+		listTripleSubjectPredicateObjectNameSpaceWithDefaultOntology = MakeListTripleSubjectPredicateObjectNameSpaceWithDefaultOntology.makeList(model);
 		
 		// Création d'une liste avec les deux noms de domaine du sujet et du
 		//  du predicat et de la nature de l'objet quand il s'agit d'un litéral. 
-		String nameOfListTripleNameSpaceAndDataType = "listTripleNameSpaceAndDataType";
-		ArrayList<UriAndUriAndUriAndNumber> listTripleNameSpaceAndDataType = new ArrayList<UriAndUriAndUriAndNumber>();
-		listTripleNameSpaceAndDataType = MakeListTripleNameSpaceAndDataType.makeList(model);
+		String nameOfListTripleSubjectAndPredicateNameSpaceAndDataType = "listTripleSubjectAndPredicateNameSpaceAndDataType";
+		ArrayList<UriAndUriAndUriAndNumber> listTripleSubjectAndPredicateNameSpaceAndDataType = new ArrayList<UriAndUriAndUriAndNumber>();
+		listTripleSubjectAndPredicateNameSpaceAndDataType = MakeListTripleSubjectAndPredicateNameSpaceAndDataType.makeList(model);
 
 	    // Création d'une liste avec les trois noms de domaine du sujet,
 		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires de représentation des connaissances. 
@@ -248,11 +188,13 @@ public class RunTreatement {
 		ArrayList<UriAndNumber> listNsObjectOtherVocabularies = new ArrayList<UriAndNumber>();
 		listNsObjectOtherVocabularies = MakeListNsObjectOtherVocabularies.makeList(model);
 
-		// Création d'une liste avec les trois noms de domaine du sujet,
+		// Création d'une liste avec le noms de domaine du sujet,
 		//  du predicat et de l'objet des triplets du graphe pour les vocabulaires de représentation des connaissances. 
 		String nameOfListLiteralNsKnowledgeRepresentationVocabularies = "listLiteralNsKnowledgeRepresentationVocabularies";
 		ArrayList<UriAndStringAndNumber> listLiteralNsKnowledgeRepresentationVocabularies = new ArrayList<UriAndStringAndNumber>();
 		listLiteralNsKnowledgeRepresentationVocabularies = MakeListLiteralNsKnowledgeRepresentationVocabularies.makeList(model);
+
+		
 
 		//////////////////////////////////////////////
 		// Transfert des listes dans fichers .json  //
@@ -260,37 +202,6 @@ public class RunTreatement {
 
 		try {
 			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listGraphTripleSize, nameOfListGraphTripleSize + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listPredicatUsageCount, nameOfListPredicatUsageCount + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listPredicatNoRdfSyntaxUsageCount, nameOfListPredicatNoRdfSyntaxUsageCount + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listPredicatNoRdfRdfsOwlUsageCount, nameOfListPredicatNoRdfRdfsOwlUsageCount + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriFile(listPropertyDeclared, nameOfListPropertyDeclared + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriFile(listClassDeclared, nameOfListClassDeclared + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -303,30 +214,6 @@ public class RunTreatement {
 
 		try {
 			AgroPortalProfilingUtil.makeJsonUriAndUriAndNumberFile(listNameSpaceClassDeclared, nameOfListNameSpaceClassDeclared + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndX2UriAndUriListAndUriListAndUriListFile(listPropertyDomainAndRange, nameOfListPropertyDomainAndRange + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriFile(listPropertyProperties, nameOfListPropertyProperties + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriFile(listResourcesSameAs, nameOfListResourcesSameAs + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriFile(listResourceDeprecated, nameOfListResourceDeprecated + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -362,12 +249,6 @@ public class RunTreatement {
 		}
 
 		try {
-			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listReduceTripleSubjectNameSpace, nameOfListReduceTripleSubjectNameSpace + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listTripleObjectNameSpace, nameOfListTripleObjectNameSpace + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -378,13 +259,6 @@ public class RunTreatement {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		try {
-			AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount, nameOfListTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount + ".json");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 
 		try {
 			AgroPortalProfilingUtil.makeJsonUriAndUriAndNumberFile(listLinksSubjectObject, nameOfListLinksSubjectObject + ".json");
@@ -411,19 +285,19 @@ public class RunTreatement {
 		}
 		
 		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleNameSpace, nameOfListTripleNameSpace + ".json");
+			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleSubjectPredicateObjectNameSpace, nameOfListTripleSubjectPredicateObjectNameSpace + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleNameSpaceWithDefaultOntology, nameOfListTripleNameSpaceWithDefaultOntology + ".json");
+			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleSubjectPredicateObjectNameSpaceWithDefaultOntology, nameOfListTripleSubjectPredicateObjectNameSpaceWithDefaultOntology + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		try {
-			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleNameSpaceAndDataType, nameOfListTripleNameSpaceAndDataType + ".json");
+			AgroPortalProfilingUtil.makeJsonUriAndUriAndUriAndNumberFile(listTripleSubjectAndPredicateNameSpaceAndDataType, nameOfListTripleSubjectAndPredicateNameSpaceAndDataType + ".json");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -506,6 +380,150 @@ public class RunTreatement {
 			e.printStackTrace();
 		}
 		
+				//////////////////////////////////////////////
+		// Pour contrôle                            //
+		//////////////////////////////////////////////
+		
+		boolean controlOK = false;
+		if (controlOK) {
+
+			// Liste des predicats et de leur usage dans les triplets du graphe.
+			String nameOfListPredicatUsageCount = "listPredicatUsageCount";
+			ArrayList<UriAndNumber> listPredicatUsageCount = new ArrayList<UriAndNumber>();
+			listPredicatUsageCount = MakeListPredicatUsageCount.makeList(model);
+
+			// Liste des predicats et de leur usage dans les triplets du graphe sans éléments de
+			//  la syntaxe RDF.
+			String nameOfListPredicatNoRdfSyntaxUsageCount = "listPredicatNoRdfSyntaxUsageCount";
+			ArrayList<UriAndNumber> listPredicatNoRdfSyntaxUsageCount = new ArrayList<UriAndNumber>();
+			listPredicatNoRdfSyntaxUsageCount = MakeListPredicatNoRdfSyntaxUsageCount.makeList(model);
+			
+			// Liste des predicats et de leur usage dans les triplets du graphe sans éléments de
+			//  la syntaxe RDF RDFS et OWL.
+			String nameOfListPredicatNoRdfRdfsOwlUsageCount = "listPredicatNoRdfRdfsOwlUsageCount";
+			ArrayList<UriAndNumber> listPredicatNoRdfRdfsOwlUsageCount = new ArrayList<UriAndNumber>();
+			listPredicatNoRdfRdfsOwlUsageCount = MakeListPredicatNoRdfRdfsOwlUsageCount.makeList(model);
+			
+			// Liste des propriétés déclarées.
+			String nameOfListPropertyDeclared = "listPropertyDeclared";
+			ArrayList<UriAndUri> listPropertyDeclared = new ArrayList<UriAndUri>();
+			listPropertyDeclared = MakeListPropertyDeclared.makeList(model);
+
+			// Liste des classes déclarées.
+			String nameOfListClassDeclared = "listClassDeclared";
+			ArrayList<UriAndUri> listClassDeclared = new ArrayList<UriAndUri>();
+			listClassDeclared = MakeListClassDeclared.makeList(model);
+
+			// Liste des propriétés et de leur domaine and range déclarés.
+			String nameOfListPropertyDomainAndRange = "listPropertyDomainAndRange";
+			ArrayList<UriAndX2UriAndUriListAndUriListAndUriList> listPropertyDomainAndRange = new ArrayList<UriAndX2UriAndUriListAndUriListAndUriList>();
+			listPropertyDomainAndRange = MakeListPropertyDomainAndRange.makeList(model);
+
+			// Liste des propriétés des propriétés (Transitive, reflective, ...).
+			String nameOfListPropertyProperties = "listPropertyProperties";
+			ArrayList<UriAndUri> listPropertyProperties = new ArrayList<UriAndUri>();
+			listPropertyProperties = MakeListPropertyProperties.makeList(model);
+
+			// Liste des ressources liées par une relation sameAs.
+			String nameOfListResourcesSameAs = "listResourcesSameAs";
+			ArrayList<UriAndUri> listResourcesSameAs = new ArrayList<UriAndUri>();
+			listResourcesSameAs = MakeListResourcesSameAs.makeList(model);
+
+			// Liste des ressources dépréciées.
+			String nameOfListResourceDeprecated = "listResourceDeprecated";
+			ArrayList<UriAndUri> listResourceDeprecated = new ArrayList<UriAndUri>();
+			listResourceDeprecated = MakeListResourceDeprecated.makeList(model);
+
+			// Création d'une liste réduite avec les noms de domaine des sujets,
+			//  des triplets du graphe. 
+			String nameOfListReduceTripleSubjectNameSpace = "listReduceTripleSubjectNameSpace";
+			ArrayList<UriAndNumber> listReduceTripleSubjectNameSpace = new ArrayList<UriAndNumber>();
+			listReduceTripleSubjectNameSpace = MakeListReduceTripleSubjectNameSpace.makeList(model);
+
+			// Liste des namespaces des predicats et de leur usage dans les triplets du graphe sans éléments de
+			//  la syntaxe RDF RDFS et OWL.
+			String nameOfListTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount = "listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount";
+			ArrayList<UriAndNumber> listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount = new ArrayList<UriAndNumber>();
+			listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount = MakeListTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount.makeList(model);
+
+		
+
+
+			////////////////////////////////////////////////////////
+			// Transfert des listes dans fichers .json (Contrôle) //
+			////////////////////////////////////////////////////////
+
+
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listPredicatUsageCount, nameOfListPredicatUsageCount + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listPredicatNoRdfSyntaxUsageCount, nameOfListPredicatNoRdfSyntaxUsageCount + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listPredicatNoRdfRdfsOwlUsageCount, nameOfListPredicatNoRdfRdfsOwlUsageCount + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndUriFile(listPropertyDeclared, nameOfListPropertyDeclared + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndUriFile(listClassDeclared, nameOfListClassDeclared + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndX2UriAndUriListAndUriListAndUriListFile(listPropertyDomainAndRange, nameOfListPropertyDomainAndRange + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndUriFile(listPropertyProperties, nameOfListPropertyProperties + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndUriFile(listResourcesSameAs, nameOfListResourcesSameAs + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndUriFile(listResourceDeprecated, nameOfListResourceDeprecated + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listReduceTripleSubjectNameSpace, nameOfListReduceTripleSubjectNameSpace + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				AgroPortalProfilingUtil.makeJsonUriAndNumberFile(listTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount, nameOfListTriplePredicatNameSpaceNoRdfRdfsOwlUsageCount + ".json");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+	   }
 
 		Instant end0 = Instant.now();
 		System.out.println("Runtime for treatments: " + AgroPortalProfilingUtil.getDurationAsString(Duration.between(start0, end0).toMillis()));

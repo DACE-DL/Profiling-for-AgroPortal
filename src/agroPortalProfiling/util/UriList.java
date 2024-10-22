@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import org.apache.jena.rdf.model.RDFList;
-import org.apache.jena.rdf.model.Resource;
 
 public class UriList {
 	
