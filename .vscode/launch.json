@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StartAcronymAgroPortalHarvest",
+            "request": "launch",
+            "mainClass": "agroPortalProfiling.launchScripts.StartAcronymAgroPortalHarvest",
+            "projectName": "ProfilingWebService"
+        },
+        {
+            "type": "java",
+            "name": "StartTestAcronymAgroPortalHarvest",
+            "request": "launch",
+            "mainClass": "agroPortalProfiling.launchScripts.StartTestAcronymAgroPortalHarvest",
+            "projectName": "ProfilingWebService"
+        },
+        {
+            "type": "java",
+            "name": "StartTestAgroPortalHarvest",
+            "request": "launch",
+            "mainClass": "agroPortalProfiling.launchScripts.StartTestAgroPortalHarvest",
+            "projectName": "ProfilingWebService"
+        },
+        {
+            "type": "java",
+            "name": "StartAgroPortalHarvest",
+            "request": "launch",
+            "mainClass": "agroPortalProfiling.launchScripts.StartAgroPortalHarvest",
+            "projectName": "ProfilingWebService"
+        },
+        {
+            "type": "java",
             "name": "CurationDataset",
             "request": "launch",
             "mainClass": "databaseManagement.CurationDataset",

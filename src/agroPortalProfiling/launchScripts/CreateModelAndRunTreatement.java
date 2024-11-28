@@ -14,9 +14,9 @@ public class CreateModelAndRunTreatement {
 	
 	public static void ModelAndTreatment() throws Exception {
 		
-		// Récupération du nom du fichier contenant la liste des ontologies à traiter pour le jeux de données source et target.
+		// Récupération du nom du fichier contenant la liste des ontologies à traiter.
 		Path pathOfTheListDatasets = Paths.get(AgroPortalProfilingConf.mainFolderAgroPortalProfiling, AgroPortalProfilingConf.fileNameListDatasets);					
-		// Récupération du nom des fichiers d'ontologies dans listDatasetsFileName pour les jeux de données source et target
+		// Récupération du nom des fichiers d'ontologies dans listDatasetsFileName.
 		ArrayList<Datasets> listDatasetsFileName = new ArrayList<Datasets>();	
 		listDatasetsFileName = AgroPortalProfilingUtil.makeListPairFileName(pathOfTheListDatasets.toString()); 
 		

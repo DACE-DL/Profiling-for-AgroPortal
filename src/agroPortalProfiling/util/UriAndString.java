@@ -23,4 +23,16 @@ public class UriAndString {
 	public void setStr(String str) {
 		this.str = str;
 	}
+
+	// Méthode toString()
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        sb.append(uri);
+		sb.append(",");
+		sb.append(str);
+        sb.append("}");
+        return sb.toString();
+    }
 }

@@ -76,6 +76,9 @@ public class RunTreatement {
 		ArrayList<UriAndNumber> listTriplePredicatNameSpace = new ArrayList<UriAndNumber>();
 		listTriplePredicatNameSpace = MakeListTriplePredicatNameSpace.makeList(model);
 
+		Instant end1 = Instant.now();
+		System.out.println("Runtime for groupe 01 treatments: " + AgroPortalProfilingUtil.getDurationAsString(Duration.between(start0, end1).toMillis()));
+
 		// List of links between subjects and objects in the graphe.
 		String nameOfListLinksSubjectObject = "listLinksSubjectObject";
 		ArrayList<UriAndUriAndNumber> listLinksSubjectObject = new ArrayList<UriAndUriAndNumber>();
@@ -380,7 +383,7 @@ public class RunTreatement {
 			e.printStackTrace();
 		}
 		
-				//////////////////////////////////////////////
+		//////////////////////////////////////////////
 		// Pour contrôle                            //
 		//////////////////////////////////////////////
 		

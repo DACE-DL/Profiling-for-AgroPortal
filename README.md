@@ -3,7 +3,7 @@
 AgroPortalProfiling est une application qui à partir d'un fichier de sérialisation pour un graphe RDF fournie
  des listes au format JSON. Ces listes fournissent principalement des métriques sur l'utilisation au sein du graphe traité d'autres vocabulaires. Ces autres vocabulaires sont classés en trois groupes 
 
-- 1 Les vocabulaires structurel
+- 1 Les vocabulaires structuraux
 
     RDF (Resource Description Framework) : RDF Syntax
     RDFS (RDF Schema) : RDFS
